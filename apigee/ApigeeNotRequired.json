@@ -82,5 +82,19 @@
       }
     }
 	},
-	"resources": []
+	"resources": [],
+	"outputs": {
+    "managementPublicDNSName": {
+      "value": "",
+      "type": "string"
+    },
+    "runtimePublicDNSName": {
+      "value": "",
+      "type": "string"
+    },
+    "managementUI": {
+      "value": "",
+      "type": "string"
+    }
+  }
 }
