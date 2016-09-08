@@ -30,18 +30,6 @@
 				"description": "Deployment location of where Apigee will be installed"
 			}
 		},
-		"tshirtSize": {
-			"type": "string",
-			"defaultValue": "XSmall",
-			"allowedValues": [
-				"XSmall",
-				"Medium",
-				"Large"
-			],
-			"metadata": {
-				"description": "T-shirt size of the Apigee deployment"
-			}
-		},
 		"adminUserName": {
 			"type": "string",
 			"metadata": {
