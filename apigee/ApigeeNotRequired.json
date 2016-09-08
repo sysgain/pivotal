@@ -1,87 +1,90 @@
 {
-    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-    "contentVersion": "1.0.0.0",
-    "parameters": {
-        "deploymentName": {
-      "type": "string",
-      "metadata": {
-        "description": "Deployment Name It can not be more than 10 characters in length and use numbers and lower-case letters only."
-      }
-    },
-    "location": {
-      "type": "string",
-      "defaultValue": "West US",
-      "allowedValues": [
-        "Brazil South",
-        "East Asia",
-        "East US",
-        "Japan East",
-        "Japan West",
-        "North Central US",
-        "North Europe",
-        "South Central US",
-        "West Europe",
-        "West US",
-        "Southeast Asia",
-        "Central US",
-        "East US 2"
-      ],
-      "metadata": {
-        "description": "Deployment location of where Apigee will be installed"
-      }
-    },
-    "tshirtSize": {
-      "type": "string",
-      "defaultValue": "XSmall",
-      "allowedValues": [
-        "XSmall",
-        "Medium",
-        "Large"
-      ],
-      "metadata": {
-        "description": "T-shirt size of the Apigee deployment"
-      }
-    },
-    "apigeeAdminUserName": {
-      "type": "string"
-    },
-    "apigeeAdminPassword": {
-      "type": "securestring"
-    },
-    "apigeeAdminEmail": {
-      "type": "string",
-      "metadata": {
-        "description": "email address used as super admin of Apigee deployment"
-      }
-    },
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"apigeeDeploymentName": {
+			"type": "string",
+			"metadata": {
+				"description": "Deployment Name It can not be more than 10 characters in length and use numbers and lower-case letters only."
+			}
+		},
+		"location": {
+			"type": "string",
+			"defaultValue": "West US",
+			"allowedValues": [
+				"Brazil South",
+				"East Asia",
+				"East US",
+				"Japan East",
+				"Japan West",
+				"North Central US",
+				"North Europe",
+				"South Central US",
+				"West Europe",
+				"West US",
+				"Southeast Asia",
+				"Central US",
+				"East US 2"
+			],
+			"metadata": {
+				"description": "Deployment location of where Apigee will be installed"
+			}
+		},
+		"tshirtSize": {
+			"type": "string",
+			"defaultValue": "XSmall",
+			"allowedValues": [
+				"XSmall",
+				"Medium",
+				"Large"
+			],
+			"metadata": {
+				"description": "T-shirt size of the Apigee deployment"
+			}
+		},
+		"adminUserName": {
+			"type": "string",
+			"metadata": {
+				"description": "Apigee Admin User Name"
+			}
+		},
+		"apigeeAdminPassword": {
+			"type": "securestring"
+		},
+		"apigeeAdminEmail": {
+			"type": "string",
+			"metadata": {
+				"description": "email address used as super admin of Apigee deployment"
+			}
+		},
 
-    "sshPublicKey": {
-      "type": "securestring",
-      "metadata": {
-        "description": "The public key for the username given. You can use SSH Agent to generate a key pair. https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/"
-      }
-    },
+		"sshKey": {
+			"type": "securestring",
+			"metadata": {
+				"description": "The public key for the username given. You can use SSH Agent to generate a key pair. https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/"
+			}
+		},
 
-    "sshPrivateKey": {
-      "type": "securestring",
-      "metadata": {
-        "description": "The private key for the username given. This is used to login to other instances if a multi node deployment (Medium, Large t-shirt sizes) is selected."
-      }
-    },
-    "apigeeLicenseFileText": {
-      "type": "securestring",
-      "metadata": {
-        "description": "License file that is given to your organization by Apigee. Paste the content of the file here"
-      }
-    },
-    "apigeeTemplateLocation": {
-      "type": "string",
-      "defaultValue": "https://gallery.azure.com/artifact/20151001/apigee.apigee-edgeapigee-edge.1.0.2/Artifacts",
-      "metadata": {
-        "description": "Template file location",
-        "artifactsBaseUrl": "Base URL of the Publisher Template gallery package"
-      }
-    }
-    },
-    "resources": []
+		"sshPrivateKey": {
+			"type": "securestring",
+			"metadata": {
+				"description": "The private key for the username given. This is used to login to other instances if a multi node deployment (Medium, Large t-shirt sizes) is selected."
+			}
+		},
+		"licenseFileText": {
+			"type": "securestring",
+			"metadata": {
+				"description": "License file that is given to your organization by Apigee. Paste the content of the file here"
+			}
+		},
+		"templateLocation": {
+			"type": "string",
+			"defaultValue": "https://gallery.azure.com/artifact/20151001/apigee.apigee-edgeapigee-edge.1.0.2/Artifacts",
+			"metadata": {
+				"description": "Template file location",
+				"artifactsBaseUrl": "Base URL of the Publisher Template gallery package"
+			}
+		}
+	},
+	"resources": []
 }
