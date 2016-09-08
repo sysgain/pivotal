@@ -53,24 +53,10 @@
 			}
 		},
 
-		"sshPrivateKey": {
-			"type": "securestring",
-			"metadata": {
-				"description": "The private key for the username given. This is used to login to other instances if a multi node deployment (Medium, Large t-shirt sizes) is selected."
-			}
-		},
 		"licenseFileText": {
 			"type": "securestring",
 			"metadata": {
 				"description": "License file that is given to your organization by Apigee. Paste the content of the file here"
-			}
-		},
-		"templateLocation": {
-			"type": "string",
-			"defaultValue": "https://gallery.azure.com/artifact/20151001/apigee.apigee-edgeapigee-edge.1.0.2/Artifacts",
-			"metadata": {
-				"description": "Template file location",
-				"artifactsBaseUrl": "Base URL of the Publisher Template gallery package"
 			}
 		}
 	},
