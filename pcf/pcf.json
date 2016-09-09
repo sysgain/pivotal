@@ -399,7 +399,7 @@
           "type" : "string",
           "value": "[concat('https://gamma:', variables('webSessionPassword'), '@', reference(concat(variables('vmName'),'-devbox')).dnsSettings.fqdn)]"
       },
-      "Jumpbox-FQDN": {
+      "Jumpbox": {
           "type" : "string",
           "value": "[reference(concat(variables('vmName'),'-devbox')).dnsSettings.fqdn]"
       }
