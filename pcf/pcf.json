@@ -53,7 +53,7 @@
         "description": "Size of vm"
       }
     },
-    "adminUsername": {
+    "pcfAdminUserName": {
       "type": "string",
       "defaultValue": "pivotal",
       "metadata": {
