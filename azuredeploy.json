@@ -211,7 +211,7 @@
     "vmStorageAccountContainerName": "vhds",
     "storageid": "[resourceId('Microsoft.Storage/storageAccounts', variables('newStorageAccountName'))]",
     "virtualNetworkName": "[parameters('virtualNetworkName')]",
-    "sshKeyPath": "[concat('/home/',parameters('adminUsername'),'/.ssh/authorized_keys')]",
+    "sshKeyPath": "[concat('/home/',parameters('pcfAdminUserName'),'/.ssh/authorized_keys')]",
     "addressPrefix": "10.0.0.0/16",
     "vnetID": "[resourceId('Microsoft.Network/virtualNetworks', variables('virtualNetworkName'))]",
     "subnet1Name": "[parameters('subnetNameForBosh')]",
