@@ -140,7 +140,7 @@
         "description": "Size of vm"
       }
     },
-    "adminUsername": {
+    "pcfAdminUserName": {
       "type": "string",
       "defaultValue": "pivotal",
       "metadata": {
@@ -321,8 +321,8 @@
     "vmSize": {
             "value": "[parameters('vmSize')]"
           },
-    "adminUsername": {
-            "value": "[parameters('adminUsername')]"
+    "pcfAdminUserName": {
+            "value": "[parameters('pcfAdminUserName')]"
           },
     "adminSSHPublicKey": {
             "value": "[parameters('adminSSHPublicKey')]"
