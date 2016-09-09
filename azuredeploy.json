@@ -147,7 +147,7 @@
         "description": "User name for the Virtual Machine."
       }
     },
-    "adminSSHPublicKey": {
+    "adminSSHKey": {
       "type": "securestring",
       "metadata": {
         "description": "Public SSH key to add to admin user."
@@ -227,7 +227,7 @@
     "imagePublisher": "Canonical",
     "imageOffer": "UbuntuServer",
     "ubuntuOSVersion": "14.04.2-LTS",
-    "webSessionPassword": "[uniqueString(parameters('adminSSHPublicKey'))]",
+    "webSessionPassword": "[uniqueString(parameters('adminSSHKey'))]",
     "baseUri": "https://raw.githubusercontent.com/sysgain/pivotal/pivotal-P2P/apigee/",
     "apigeeTemplateLink": "[concat(variables('baseUri'),parameters('apigeeEdge'),'.json')]",
     "pcfTemplateLink":"https://raw.githubusercontent.com/sysgain/pivotal/pivotal-P2P/pcf/pcf.json"
@@ -324,8 +324,8 @@
     "pcfAdminUserName": {
             "value": "[parameters('pcfAdminUserName')]"
           },
-    "adminSSHPublicKey": {
-            "value": "[parameters('adminSSHPublicKey')]"
+    "adminSSHKey": {
+            "value": "[parameters('adminSSHKey')]"
           },
     "enableDNSOnDevbox": {
             "value": "[parameters('enableDNSOnDevbox')]"
