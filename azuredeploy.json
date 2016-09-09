@@ -371,9 +371,9 @@
       "type": "String",
       "value": "[reference('pcf').outputs.ProgressMonitorURL.value]"
     },
-    "Jumpbox-FQDN": {
+    "Jumpbox": {
       "type": "String",
-      "value": "[reference('pcf').outputs.Jumpbox-FQDN.value]"
+      "value": "[reference('pcf').outputs.Jumpbox.value]"
     }
   }
     
