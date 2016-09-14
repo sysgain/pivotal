@@ -232,7 +232,18 @@
 		"apigeeTemplateLink": "[concat(variables('baseUri'),parameters('apigeeEdge'),'.json')]",
 		"pcfTemplateLink": "https://raw.githubusercontent.com/sysgain/pivotal/pivotal-P2P/pcf/pcf.json",
 		"managementPublicIPDNSName": "[concat(parameters('apigeeDeploymentName'), uniqueString(resourceGroup().id, deployment().name), '-management')]",
-		"managementUI": "[concat('http://', variables('managementPublicIPDNSName'), '.', tolower(replace(parameters('location'),' ','')), '.cloudapp.azure.com', ':9000')]"
+		"managementUI": "[concat('http://', variables('managementPublicIPDNSName'), '.', tolower(replace(parameters('location'),' ','')), '.cloudapp.azure.com', ':9000')]",
+		"managementPublicIPDNSName": "[concat(parameters('apigeeDeploymentName'), uniqueString(resourceGroup().id, deployment().name), '-management')]",
+    		"managementDNSName": "[concat('https://', variables('managementPublicIPDNSName'), '.', tolower(replace(parameters('location'),' ','')), '.cloudapp.azure.com')]",
+    		"managementDNSAlias": "[concat(variables('managementPublicIPDNSName'), '.', tolower(replace(parameters('location'),' ','')), '.cloudapp.azure.com')]",
+		"managementPublicIPAddressName": "[concat('ApigeeManagementPublicIP-',parameters('apigeeDeploymentName'))]",
+    		"managementPublicIPResourceId": "[resourceId('Microsoft.Network/publicIPAddresses', variables('managementPublicIPAddressName'))]",
+    		"runtimePublicIPDNSName": "[concat(parameters('apigeeDeploymentName'), uniqueString(resourceGroup().id, deployment().name), '-runtime')]",
+    		"runtimePublicDNSName": "[concat('https://', variables('runtimePublicIPDNSName'), '.', tolower(replace(parameters('location'),' ','')), '.cloudapp.azure.com')]",
+    		"runtimePublicDNSAlias": "[concat(variables('runtimePublicIPDNSName'), '.', tolower(replace(parameters('location'),' ','')), '.cloudapp.azure.com')]",
+    		"runtimePublicIPAddressName": "[concat('ApigeeRuntimePublicIP-',parameters('apigeeDeploymentName'))]",
+    		"runtimePublicIPResourceId": "[resourceId('Microsoft.Network/publicIPAddresses', variables('runtimePublicIPAddressName'))]",
+    		"publicIPDNSName": "[concat(parameters('apigeeDeploymentName'), '-management')]",
 	},
 	"resources": [{
 		"name": "apigeeEdge",
@@ -269,10 +280,6 @@
 				"sshKey": {
 					"value": "[parameters('sshKey')]"
 				},
-				"sshPrivateKey": {
-					"value": "[parameters('sshPrivateKey')]"
-				},
-
 				"licenseFileText": {
 					"value": "[parameters('licenseFileText')]"
 				},
@@ -300,6 +307,12 @@
 				},
 				"managementUI": {
 					"value": "[variables('managementUI')]"
+				},
+				"managementDNSName":{
+				"value": "[variables('managementDNSName')]"
+				},
+				"runtimePublicDNSName":{
+					"value": "[variables('runtimePublicDNSName')]"
 				},
 				"storageAccountNamePrefixString": {
 					"value": "[parameters('storageAccountNamePrefixString')]"
@@ -351,18 +364,18 @@
 
 	}],
 	"outputs": {
-		"managementUI": {
-			"type": "String",
-			"value": "[reference('apigeeEdge').outputs.managementUI.value]"
-		},
 		"managementPublicDNSName": {
-			"type": "String",
-			"value": "[reference('apigeeEdge').outputs.managementPublicDNSName.value]"
-		},
+			 "value": "[variables('managementDNSName')]",
+			  "type": "string"
+		   },
 		"runtimePublicDNSName": {
-			"type": "String",
-			"value": "[reference('apigeeEdge').outputs.runtimePublicDNSName.value]"
-		},
+			 "value": "[variables('runtimePublicDNSName')]",
+			 "type": "string"
+		  },
+		"managementUI": {
+			 "value": "[concat('http://', variables('managementPublicIPDNSName'), '.', tolower(replace(parameters('location'),' ','')), '.cloudapp.azure.com', ':9000')]",
+			 "type": "string"
+		 },
 		"scriptoutput": {
 			"type": "String",
 			"value": "[reference('pcf').outputs.scriptoutput.value]"
