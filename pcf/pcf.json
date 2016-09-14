@@ -64,14 +64,14 @@
 				"description": "Size of vm"
 			}
 		},
-		"pcfAdminUserName": {
+		"adminUsername": {
 			"type": "string",
 			"defaultValue": "pivotal",
 			"metadata": {
 				"description": "User name for the Virtual Machine."
 			}
 		},
-		"sshKey": {
+		"adminSSHKey": {
 			"type": "securestring",
 			"metadata": {
 				"description": "Public SSH key to add to admin user."
@@ -305,13 +305,13 @@
 			},
 			"osProfile": {
 				"computerName": "[variables('vmName')]",
-				"adminUsername": "[parameters('pcfAdminUserName')]",
+				"adminUsername": "[parameters('adminUsername')]",
 				"linuxConfiguration": {
 					"disablePasswordAuthentication": "true",
 					"ssh": {
 						"publicKeys": [{
 							"path": "[variables('sshKeyPath')]",
-							"keyData": "[parameters('sshKey')]"
+							"keyData": "[parameters('adminSSHKey')]"
 						}]
 					}
 				}
@@ -359,7 +359,7 @@
 				"apigeeEdge": "[parameters('apigeeEdge')]",
 				"managementDNSName": "[parameters('managementDNSName')]",
 				"runtimePublicDNSName": "[parameters('runtimePublicDNSName')]",
-				"sshKey": "[parameters('sshKey')]",
+				"sshKey": "[parameters('adminSSHKey')]",
 				"commandToExecute": "[concat('python ./bootstrap.py ', parameters('installSize'), ' ', variables('webSessionPassword'))]",
 				"location": "[variables('location')]",
 				"VNET-NAME": "[variables('virtualNetworkName')]",
@@ -376,7 +376,7 @@
 				"CLIENT-SECRET": "[parameters('clientSecret')]",
 				"cf-ip": "[reference(concat(variables('vmName'),'-cf')).ipAddress]",
 				"bosh-ip": "[reference(concat(variables('vmName'),'-bosh')).ipAddress]",
-				"username": "[parameters('pcfAdminUserName')]",
+				"username": "[parameters('adminUsername')]",
 				"enable-dns": "[parameters('enableDNSOnDevbox')]",
 				"pivnet-api-token": "[parameters('pivnetAPIToken')]"
 			},
