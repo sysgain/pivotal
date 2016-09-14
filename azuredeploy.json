@@ -185,7 +185,7 @@
 		"webSessionPassword": "[uniqueString(parameters('adminSSHKey'))]",
 		"installSize": "Small",
 		"vmSize": "Standard_D2_v2",
-		"baseUri": "https://raw.githubusercontent.com/sysgain/bosh-azure-template/pivotal-P2P/pivotal-P2P/Apigee/",
+		"baseUri": "https://raw.githubusercontent.com/sysgain/pivotal/pivotal-P2P/apigee/",
 		"apigeeTemplateLink": "[concat(variables('baseUri'),parameters('apigeeEdge'),'.json')]",
 		"pcfTemplateLink": "https://raw.githubusercontent.com/sysgain/bosh-azure-template/pivotal-P2P/azuredeploy.json",
 		"managementPublicIPDNSName": "[concat(parameters('apigeeDeploymentName'), uniqueString(resourceGroup().id, deployment().name), '-management')]",
