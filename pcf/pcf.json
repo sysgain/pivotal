@@ -157,7 +157,7 @@
 		"imagePublisher": "Canonical",
 		"imageOffer": "UbuntuServer",
 		"ubuntuOSVersion": "14.04.2-LTS",
-		"webSessionPassword": "[uniqueString(parameters('sshKey'))]"
+		"webSessionPassword": "[uniqueString(parameters('adminSSHKey'))]"
 	},
 	"resources": [{
 		"type": "Microsoft.Storage/storageAccounts",
